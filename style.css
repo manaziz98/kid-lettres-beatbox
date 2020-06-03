@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.balloons {
+  width: 50%;
+  height: 100vh;
+  position: relative;
+  background-image: url("./assets/balloons.jpg");
+  background-size: 100% 100vh;
+}
+.beatbox {
+  width: 50%;
+  height: 100vh;
+  background-color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-evenly;
+}
+
+.title {
+  /* font-family: "Codystar", cursive; */
+  font-family: "Architects Daughter", cursive;
+
+  font-weight: bold;
+  flex-basis: 90%;
+  display: flex;
+  color: aqua;
+  text-shadow: 0 0 10px aqua, 0 0 20px aqua, 0 0 30px aqua, 0 0 40px aqua,
+    0 0 50px aqua, 0 0 60px aqua, 0 0 70px aqua, 0 0 90px aqua;
+  justify-content: center;
+  text-align: center;
+  font-size: 40px;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.beat {
+  width: 100px;
+  height: 100px;
+  flex-basis: 29%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beat .button {
+  font-family: "Architects Daughter", cursive;
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+  border: 5px solid aqua;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  transition: all 0.2s;
+}
+
+.animatedCircle {
+  font-family: "Architects Daughter", cursive;
+  width: 70px;
+  height: 70px;
+  color: black;
+  font-size: 35px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px white;
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: goUp 2.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes goUp {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-110px);
+  }
+}
+@keyframes glow {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.3;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .balloons {
+    display: none;
+  }
+  .beatbox {
+    width: 100%;
+    background-image: url("./assets/balloons.jpg");
+    background-size: 100vw 100vh;
+  }
+  .beat .button {
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+  }
+}
