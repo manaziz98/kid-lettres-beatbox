@@ -10,12 +10,12 @@ class Beat {
 }
 
 class Circle {
-  constructor(color, lettre) {
+  constructor(color, lettre, className = "animatedCircle") {
     this.element = document.createElement("div");
     this.color = color;
     this.lettre = lettre;
     this.position = Math.floor(Math.random() * 80);
-    this.class = "animatedCircle";
+    this.class = className;
     this.addClass();
     this.addBackgroundColor();
     this.addPosition();
@@ -54,13 +54,19 @@ class Button {
 
   select = () => {
     this.element.style.backgroundColor = this.color;
+    this.createCircle();
+  };
 
-    let objectCircle = new Circle(this.color, this.lettre);
-    let circle = objectCircle.element;
+  createCircle = () => {
+    const objectCircle = new Circle(this.color, this.lettre);
+    const circle = objectCircle.element;
     circle.addEventListener("animationend", (e) => e.target.remove());
+    this.appendCircle(circle);
+  };
 
-    let classContainer = window.innerWidth > 679 ? "balloons" : "container";
-    let container = document.getElementsByClassName(classContainer)[0];
+  appendCircle = (circle) => {
+    const classContainer = window.innerWidth > 679 ? "balloons" : "container";
+    const container = document.getElementsByClassName(classContainer)[0];
     container.appendChild(circle);
   };
 

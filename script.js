@@ -37,17 +37,15 @@ let beats = {
   },
 };
 
-triggerBeat = (keyCode) => {
+triggerBeat = (e) => {
+  const keyCode = e.keyCode;
   if (keyCode in beats) {
     beats[keyCode].beat.play();
+    beats[keyCode].button.select();
     setTimeout(() => {
       beats[keyCode].button.deselect();
     }, 200);
-    beats[keyCode].button.select();
   }
 };
 
-document.addEventListener("keydown", (e) => {
-  let keyCode = e.keyCode;
-  triggerBeat(keyCode);
-});
+document.addEventListener("keydown", triggerBeat);
