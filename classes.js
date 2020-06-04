@@ -54,20 +54,7 @@ class Button {
 
   select = () => {
     this.element.style.backgroundColor = this.color;
-    this.createCircle();
-  };
-
-  createCircle = () => {
-    const objectCircle = new Circle(this.color, this.lettre);
-    const circle = objectCircle.element;
-    circle.addEventListener("animationend", (e) => e.target.remove());
-    this.appendCircle(circle);
-  };
-
-  appendCircle = (circle) => {
-    const classContainer = window.innerWidth > 679 ? "balloons" : "container";
-    const container = document.getElementsByClassName(classContainer)[0];
-    container.appendChild(circle);
+    createCircle(this.color, this.lettre);
   };
 
   deselect = () => {
