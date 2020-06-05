@@ -1,3 +1,3 @@
 # kid-lettres-beatbox
 
-a personalized beatbox for kids
+My personalized beatbox for kids
