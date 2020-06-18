@@ -1,6 +1,5 @@
 createCircle = (color = "aqua", lettre = "A") => {
-  const objectCircle = new Circle(color, lettre);
-  const circle = objectCircle.element;
+  const circle = new Circle(color, lettre).element;
   circle.addEventListener("animationend", (e) => e.target.remove());
   appendCircle(circle);
 };

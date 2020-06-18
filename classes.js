@@ -49,15 +49,16 @@ class Button {
 
   setButtonColorInHTML = () => {
     this.element.style.borderColor = this.color;
-    this.element.style.boxShadow = `0 0 20px ${this.color}`;
   };
 
   select = () => {
     this.element.style.backgroundColor = this.color;
+    this.element.style.boxShadow = `0 0 20px ${this.color}`;
     createCircle(this.color, this.lettre);
   };
 
   deselect = () => {
     this.element.style.removeProperty("background-color");
+    this.element.style.removeProperty("box-shadow");
   };
 }
